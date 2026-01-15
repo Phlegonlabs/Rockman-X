@@ -5,7 +5,7 @@ describe('Configuration', () => {
   test('should load default config when none exists', async () => {
     const config = await loadConfig();
 
-    expect(config.threshold).toBe(65);
+    expect(config.threshold).toBe(20);
     expect(config.maxStates).toBe(3);
     expect(config.autoCleanup).toBe(true);
   });
@@ -25,12 +25,12 @@ describe('Configuration', () => {
 
   test('should return default threshold via getThreshold', async () => {
     const threshold = await getThreshold();
-    expect(threshold).toBe(65);
+    expect(threshold).toBe(20);
   });
 
   test('should expose DEFAULT_CONFIG', () => {
     expect(DEFAULT_CONFIG).toBeDefined();
-    expect(DEFAULT_CONFIG.threshold).toBe(65);
+    expect(DEFAULT_CONFIG.threshold).toBe(20);
     expect(DEFAULT_CONFIG.notificationStyle).toBe('compact');
   });
 });
