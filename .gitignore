@@ -3,3 +3,13 @@ node_modules/
 .DS_Store
 coverage/
 dist/
+
+# State files
+.claude-context/
+
+# Planning docs
+implementation-plan.md
+prd.md
+
+# Lock files
+package-lock.json
