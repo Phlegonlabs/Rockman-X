@@ -2,11 +2,13 @@
 
 [English](README.md) | [繁體中文](README_zh-TW.md)
 
-> Automatically save and restore Claude Code session state when context window reaches threshold.
+> Auto-save and restore Claude Code session state when context reaches 10% threshold.
+>
+> **Install:** `/plugin install context-spawner@Rockman-X`
 
 ## Features
 
-- **Automatic State Capture** - Detects when context window reaches threshold (default: 65%)
+- **Automatic State Capture** - Detects when context window reaches threshold (default: 10%)
 - **Repository Isolation** - Each repository maintains its own independent state
 - **Complete State Preservation** - Tasks, git status, file changes - nothing lost
 - **Seamless Restoration** - New sessions automatically restore previous state
@@ -17,13 +19,13 @@
 ### Installation
 
 ```bash
-# Step 1: Add the plugin as a marketplace
-/plugin marketplace add Phlegonlabs/claude-code-context-spawner
+# Add the Rockman-X marketplace
+/plugin marketplace add https://github.com/Phlegonlabs/Rockman-X.git
 
-# Step 2: Install the plugin
-/plugin install context-spawner@claude-code-context-spawner
+# Install the plugin
+/plugin install context-spawner@Rockman-X
 
-# Step 3: Restart Claude Code
+# Restart Claude Code
 ```
 
 ### That's it!
@@ -33,7 +35,7 @@ The plugin works automatically in the background.
 ## How It Works
 
 ```
-Session A (context reaches 65%)
+Session A (context reaches 10%)
     |
     v
 [Auto-save state to .claude-context/]
@@ -65,7 +67,7 @@ Add to `~/.claude/config.json` (optional):
 ```json
 {
   "contextSpawner": {
-    "threshold": 65,
+    "threshold": 10,
     "maxStates": 3,
     "autoCleanup": true,
     "notificationStyle": "compact",
@@ -76,7 +78,7 @@ Add to `~/.claude/config.json` (optional):
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `threshold` | 65 | Context usage % to trigger save |
+| `threshold` | 10 | Context usage % to trigger save |
 | `maxStates` | 3 | Number of state files to keep |
 | `autoCleanup` | true | Auto-delete old states |
 | `notificationStyle` | compact | Notification display style |

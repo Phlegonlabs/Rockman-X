@@ -2,11 +2,13 @@
 
 [English](README.md) | [繁體中文](README_zh-TW.md)
 
-> 當 context window 達到閾值時，自動儲存並恢復 Claude Code 會話狀態。
+> 當 context 達到 10% 閾值時，自動儲存並恢復 Claude Code 會話狀態。
+>
+> **安裝：** `/plugin install context-spawner@Rockman-X`
 
 ## 功能特色
 
-- **自動狀態捕獲** - 偵測 context window 達到閾值時自動觸發（預設：65%）
+- **自動狀態捕獲** - 偵測 context window 達到閾值時自動觸發（預設：10%）
 - **儲存庫隔離** - 每個儲存庫維護獨立的狀態
 - **完整狀態保存** - 任務、git 狀態、檔案變更，一個都不漏
 - **無縫恢復** - 新會話自動恢復上一次的狀態
@@ -17,13 +19,13 @@
 ### 安裝
 
 ```bash
-# 步驟 1: 將 plugin 新增為 marketplace
-/plugin marketplace add Phlegonlabs/claude-code-context-spawner
+# 新增 Rockman-X marketplace
+/plugin marketplace add https://github.com/Phlegonlabs/Rockman-X.git
 
-# 步驟 2: 安裝 plugin
-/plugin install context-spawner@claude-code-context-spawner
+# 安裝 plugin
+/plugin install context-spawner@Rockman-X
 
-# 步驟 3: 重新啟動 Claude Code
+# 重新啟動 Claude Code
 ```
 
 ### 就這樣！
@@ -33,7 +35,7 @@
 ## 運作原理
 
 ```
-會話 A（context 達到 65%）
+會話 A（context 達到 10%）
     |
     v
 [自動儲存狀態到 .claude-context/]
@@ -65,7 +67,7 @@
 ```json
 {
   "contextSpawner": {
-    "threshold": 65,
+    "threshold": 10,
     "maxStates": 3,
     "autoCleanup": true,
     "notificationStyle": "compact",
@@ -76,7 +78,7 @@
 
 | 選項 | 預設值 | 說明 |
 |------|--------|------|
-| `threshold` | 65 | 觸發儲存的 context 使用率 % |
+| `threshold` | 10 | 觸發儲存的 context 使用率 % |
 | `maxStates` | 3 | 保留的狀態檔案數量 |
 | `autoCleanup` | true | 自動刪除舊狀態 |
 | `notificationStyle` | compact | 通知顯示樣式 |
