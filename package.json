@@ -1,0 +1,28 @@
+{
+  "name": "claude-code-context-spawner",
+  "version": "1.0.0",
+  "description": "Auto-save and restore Claude Code session state when context window fills",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint lib/ hooks/",
+    "format": "prettier --write lib/ hooks/ tests/"
+  },
+  "keywords": [
+    "claude-code",
+    "context-management",
+    "state-persistence",
+    "plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-boxes": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  }
+}
