@@ -3,6 +3,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const cleanup = require('./cleanup');
 const config = require('./config');
+const conversationHistory = require('./conversation-history');
+const todoReader = require('./todo-reader');
 
 /**
  * Save current session state to repository
@@ -66,18 +68,38 @@ function formatTimestamp(date) {
 async function buildStateObject({ repository, timestamp, contextUsage, workingDirectory }) {
   const fileSnapshot = await captureFileSnapshot(workingDirectory);
 
+  // Read conversation history
+  const conversation = await conversationHistory.readConversationHistory(workingDirectory);
+
+  // Read todos
+  const todos = await todoReader.readTodos(workingDirectory);
+
+  // Extract key decisions from conversation
+  const keyDecisions = conversationHistory.extractKeyDecisions(conversation.messages);
+
+  // Count todos by status
+  const todoCounts = todoReader.countTodosByStatus(todos);
+
   return {
     metadata: {
       repository,
       timestamp,
-      contextUsageAtCapture: `${contextUsage}%`
+      contextUsageAtCapture: `${contextUsage}%`,
+      lastActivity: conversation.lastActivity
     },
     conversationSummary: {
-      keyDecisions: [],
-      codeChanges: [],
+      summary: conversation.summary,
+      keyDecisions,
+      conversationHistory: conversation.messages,
       unresolvedIssues: []
     },
-    tasks: [],
+    tasks: todos,
+    taskSummary: {
+      total: todoCounts.total,
+      completed: todoCounts.completed,
+      in_progress: todoCounts.in_progress,
+      pending: todoCounts.pending
+    },
     fileSnapshot,
     preferences: {},
     errorLog: []
