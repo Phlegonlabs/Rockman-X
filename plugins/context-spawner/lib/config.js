@@ -4,7 +4,7 @@ const path = require('path');
 const os = require('os');
 
 const DEFAULT_CONFIG = {
-  threshold: 10,
+  threshold: 20,
   maxStates: 3,
   autoCleanup: true,
   notificationStyle: 'compact',

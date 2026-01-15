@@ -10,7 +10,7 @@ hooks:
 
 config:
   contextSpawner:
-    threshold: 10
+    threshold: 20
     maxStates: 3
     autoCleanup: true
     notificationStyle: compact

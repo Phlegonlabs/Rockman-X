@@ -15,7 +15,7 @@ TIMESTAMP=${CLAUDE_TIMESTAMP:-$(date -u +"%Y-%m-%dT%H:%M:%SZ")}
 USAGE_NUM=$(echo "$CONTEXT_USAGE" | tr -d '%')
 
 # Read threshold from plugin config
-THRESHOLD=10
+THRESHOLD=20
 if [ -f "${PLUGIN_ROOT}/plugin.yaml" ]; then
   # Extract threshold from plugin.yaml using grep/sed
   PLUGIN_THRESHOLD=$(grep "threshold:" "${PLUGIN_ROOT}/plugin.yaml" | head -1 | awk '{print $2}')
