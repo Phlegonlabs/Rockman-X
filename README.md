@@ -1,5 +1,7 @@
 # Claude Code Context Spawner
 
+[English](README.md) | [繁體中文](README_zh-TW.md)
+
 > Automatically save and restore Claude Code session state when context window reaches threshold.
 
 ## Features
