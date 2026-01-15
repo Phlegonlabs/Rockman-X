@@ -2,13 +2,13 @@
 
 [English](README.md) | [繁體中文](README_zh-TW.md)
 
-> Auto-save and restore Claude Code session state when context reaches 10% threshold.
+> Auto-save and restore Claude Code session state when context reaches 20% threshold.
 >
 > **Install:** `/plugin install context-spawner@Rockman-X`
 
 ## Features
 
-- **Automatic State Capture** - Detects when context window reaches threshold (default: 10%)
+- **Automatic State Capture** - Detects when context window reaches threshold (default: 20%)
 - **Repository Isolation** - Each repository maintains its own independent state
 - **Complete State Preservation** - Tasks, git status, file changes - nothing lost
 - **Seamless Restoration** - New sessions automatically restore previous state
@@ -35,7 +35,7 @@ The plugin works automatically in the background.
 ## How It Works
 
 ```
-Session A (context reaches 10%)
+Session A (context reaches 20%)
     |
     v
 [Auto-save state to .claude-context/]
@@ -67,7 +67,7 @@ Add to `~/.claude/config.json` (optional):
 ```json
 {
   "contextSpawner": {
-    "threshold": 10,
+    "threshold": 20,
     "maxStates": 3,
     "autoCleanup": true,
     "notificationStyle": "compact",
@@ -78,7 +78,7 @@ Add to `~/.claude/config.json` (optional):
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `threshold` | 10 | Context usage % to trigger save |
+| `threshold` | 20 | Context usage % to trigger save |
 | `maxStates` | 3 | Number of state files to keep |
 | `autoCleanup` | true | Auto-delete old states |
 | `notificationStyle` | compact | Notification display style |
