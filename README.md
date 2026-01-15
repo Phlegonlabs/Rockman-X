@@ -17,11 +17,13 @@
 ### Installation
 
 ```bash
-# From GitHub
-/plugin install github:user/context-spawner
+# Step 1: Add the plugin as a marketplace
+/plugin marketplace add Phlegonlabs/claude-code-context-spawner
 
-# From local directory
-/plugin install ./context-spawner
+# Step 2: Install the plugin
+/plugin install context-spawner@claude-code-context-spawner
+
+# Step 3: Restart Claude Code
 ```
 
 ### That's it!

@@ -17,11 +17,13 @@
 ### 安裝
 
 ```bash
-# 從 GitHub 安裝
-/plugin install github:user/context-spawner
+# 步驟 1: 將 plugin 新增為 marketplace
+/plugin marketplace add Phlegonlabs/claude-code-context-spawner
 
-# 從本地目錄安裝
-/plugin install ./context-spawner
+# 步驟 2: 安裝 plugin
+/plugin install context-spawner@claude-code-context-spawner
+
+# 步驟 3: 重新啟動 Claude Code
 ```
 
 ### 就這樣！
