@@ -1,0 +1,17 @@
+name: context-spawner
+version: 1.0.0
+description: Auto-save and restore Claude Code session state when context window reaches threshold
+author: ""
+license: MIT
+
+hooks:
+  post-response: ./hooks/post-response.sh
+  pre-session: ./hooks/pre-session.sh
+
+config:
+  contextSpawner:
+    threshold: 10
+    maxStates: 3
+    autoCleanup: true
+    notificationStyle: compact
+    restoreOnNewSession: true
