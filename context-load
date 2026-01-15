@@ -1,0 +1,5 @@
+#!/bin/bash
+# context-load - Restore previous session state
+
+cd "$(dirname "$0")"
+node context-load.js
