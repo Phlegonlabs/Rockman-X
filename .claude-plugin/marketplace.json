@@ -1,6 +1,6 @@
 {
   "name": "Rockman-X",
-  "description": "Marketplace for Claude Code Context Spawner plugin",
+  "description": "A collection of Claude Code plugins by Phlegonlabs",
   "owner": {
     "name": "Phlegonlabs"
   },
@@ -9,7 +9,7 @@
       "name": "context-spawner",
       "description": "Auto-save and restore Claude Code session state when context window reaches threshold",
       "version": "1.0.0",
-      "source": "./",
+      "source": "./plugins/context-spawner",
       "author": {
         "name": "Phlegonlabs"
       }
